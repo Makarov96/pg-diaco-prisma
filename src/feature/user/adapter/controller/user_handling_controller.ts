@@ -6,7 +6,7 @@ import { UserManager } from "../manager/user_manager"
 
 abstract class  UserController {
   indexCreateUser = async (req: any, res: any, next: NextFunction) => { }
-  indexCreateAnnymouUser = async (req: any, res: any, next: NextFunction) => { }
+  indexCreateAnonymousUser = async (req: any, res: any, next: NextFunction) => { }
 }
 
 class  UserControllerImpl implements UserController{
@@ -39,7 +39,7 @@ class  UserControllerImpl implements UserController{
    
     }
   }
-  indexCreateAnnymouUser= async (req: Request, res: Response, next: NextFunction) => {
+  indexCreateAnonymousUser= async (req: Request, res: Response, next: NextFunction) => {
       try {
       const result = await this.userManager.createAnonymousUser();
       res.json({
@@ -53,5 +53,6 @@ class  UserControllerImpl implements UserController{
    
       }
   }
- 
 }
+
+export default new UserControllerImpl();

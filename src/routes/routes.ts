@@ -1,5 +1,6 @@
 import express from "express";
 import indexComplait from "../feature/complaints/routes/index";
+import indexUser from "../feature/user/routes/index"
 import cors from "cors";
 
 const router = express.Router();
@@ -18,6 +19,7 @@ const options: cors.CorsOptions = {
 
 router.use(cors(options));
 router.use(indexComplait);
+router.use(indexUser);
 
 export {
   router
