@@ -13,6 +13,7 @@ export class UserPrismaRepository implements UserRepository {
   async createUser(user: UserModel, countryInfo: CountryModel, consumerType: ConsumerTypeModel, gender: GenderModel, phone: PhoneModel, personalDoc: PersonalDocumentationModel): Promise<string> {
     let result: User
       const userEmail: any = user?.email;
+
       result = await prisma.user.upsert({
         where: {
          email: userEmail,
@@ -67,7 +68,7 @@ export class UserPrismaRepository implements UserRepository {
           marriedName: user.marriedName,
           email: user.email,
           countryInformation: {
-            create: {
+            update: {
               nationality: countryInfo.nationality,
               municipality: countryInfo.municipality,
               zone: countryInfo.zone,
@@ -77,17 +78,17 @@ export class UserPrismaRepository implements UserRepository {
             }
           },
           consumerType: {
-            create: {
+            update: {
               consumer: consumerType.consumer
             }
           },
           gender: {
-            create: {
+            update: {
               genderType: gender.genderType
             }
           },
           phone: {
-            create: {
+            update: {
               docimicilioPhone: phone.docimicilioPhone,
               phoneNumber: phone.phoneNumber,
               phoneAddress: phone.phoneAddress,
@@ -95,13 +96,14 @@ export class UserPrismaRepository implements UserRepository {
             }
           },
           personalDocuments: {
-            create: {
+            update: {
               identificationDocument: personalDoc.identificationDocument,
               nit: personalDoc.nit,
             }
           }
         },
       },);
+     
     return result.id;
   }
 

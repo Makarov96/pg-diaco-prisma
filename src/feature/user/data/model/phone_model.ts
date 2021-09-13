@@ -1,5 +1,4 @@
 class PhoneModel {
-
   phoneNumber: string;
   phoneAddress: string;
   mobile: string;

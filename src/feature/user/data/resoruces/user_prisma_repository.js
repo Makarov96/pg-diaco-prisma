@@ -116,7 +116,7 @@ var UserPrismaRepository = /** @class */ (function () {
                                     marriedName: user.marriedName,
                                     email: user.email,
                                     countryInformation: {
-                                        create: {
+                                        update: {
                                             nationality: countryInfo.nationality,
                                             municipality: countryInfo.municipality,
                                             zone: countryInfo.zone,
@@ -126,17 +126,17 @@ var UserPrismaRepository = /** @class */ (function () {
                                         }
                                     },
                                     consumerType: {
-                                        create: {
+                                        update: {
                                             consumer: consumerType.consumer
                                         }
                                     },
                                     gender: {
-                                        create: {
+                                        update: {
                                             genderType: gender.genderType
                                         }
                                     },
                                     phone: {
-                                        create: {
+                                        update: {
                                             docimicilioPhone: phone.docimicilioPhone,
                                             phoneNumber: phone.phoneNumber,
                                             phoneAddress: phone.phoneAddress,
@@ -144,7 +144,7 @@ var UserPrismaRepository = /** @class */ (function () {
                                         }
                                     },
                                     personalDocuments: {
-                                        create: {
+                                        update: {
                                             identificationDocument: personalDoc.identificationDocument,
                                             nit: personalDoc.nit,
                                         }

@@ -15,6 +15,7 @@ export class ComplaitPrismaRepository implements ComplaitRepository {
   
      let complaitCreated: Complaint;
      if (anonymousCount == 0) {
+     
        complaitCreated = await prisma.complaint.create({
          data: {
            title: newcomplait.title.toString(),

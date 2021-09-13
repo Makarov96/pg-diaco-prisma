@@ -16,17 +16,18 @@ class  UserControllerImpl implements UserController{
   }
   indexCreateUser= async(req: Request, res: Response, next: NextFunction) => {
     const user:UserModel= req.body.data["user"];
-    const countryInfo:CountryModel = req.body.data["countryInfo"];
-    const consumerType:ConsumerTypeModel= req.body.data["consumerType"];
-    const gender:GenderModel=req.body.data["gender"]; 
-    const phone:PhoneModel=req.body.data["phone"]; 
-    const personalDoc:PersonalDocumentationModel=req.body.data["personalDoc"]; 
+    const countryInfo:CountryModel = req.body.data.user["countryInfo"];
+    const consumerType:ConsumerTypeModel= req.body.data.user["consumerType"];
+    const gender:GenderModel=req.body.data.user["gender"]; 
+    const phone:PhoneModel=req.body.data.user["phone"]; 
+    const personalDoc:PersonalDocumentationModel=req.body.data.user["personalDoc"]; 
 
     if (!user || !countryInfo || !gender || !phone || !consumerType) {
       next(new HttpException(400, "Falta informacion en el json", "Error en el json un dato viene indefinido "
       + `${user} ${countryInfo} ${gender} ${phone}`));
     }
     try {
+      
       const result =await this.userManager.createUser(user,countryInfo,consumerType,gender,phone,personalDoc);
      res.json({
        "success":true,

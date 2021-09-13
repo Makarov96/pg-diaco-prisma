@@ -63,11 +63,11 @@ var UserControllerImpl = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         user = req.body.data["user"];
-                        countryInfo = req.body.data["countryInfo"];
-                        consumerType = req.body.data["consumerType"];
-                        gender = req.body.data["gender"];
-                        phone = req.body.data["phone"];
-                        personalDoc = req.body.data["personalDoc"];
+                        countryInfo = req.body.data.user["countryInfo"];
+                        consumerType = req.body.data.user["consumerType"];
+                        gender = req.body.data.user["gender"];
+                        phone = req.body.data.user["phone"];
+                        personalDoc = req.body.data.user["personalDoc"];
                         if (!user || !countryInfo || !gender || !phone || !consumerType) {
                             next(new http_execption_1.default(400, "Falta informacion en el json", "Error en el json un dato viene indefinido "
                                 + (user + " " + countryInfo + " " + gender + " " + phone)));
