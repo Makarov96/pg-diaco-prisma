@@ -20,15 +20,15 @@ model Complaint {
   authorization Boolean  @default(false)
   author    User?     @relation(fields: [authorId], references: [id])
   anonymousAuthor Anonymous? @relation(fields: [anonymousAuthorId], references:[id])
-  authorId  Int
-  anonymousAuthorId  Int
+  authorId  String?
+  anonymousAuthorId  String?
 }
 enum Profile {
   ANONYMOUS
   USER
 }
 model Anonymous {
-  id      Int      @id @default(autoincrement())
+  id      String      @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   profile Profile @default(ANONYMOUS)
@@ -36,7 +36,7 @@ model Anonymous {
 }
 
 model User {
-  id      Int      @id @default(autoincrement())
+  id      String      @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   firstName    String?
@@ -65,19 +65,19 @@ model Phone{
   mobile String?
   docimicilioPhone String?
   user   User    @relation(fields: [phoneId], references: [id])
-  phoneId Int     @unique
+  phoneId String     @unique
 }
 
 
 model Gender{
   user   User    @relation(fields: [genderId], references: [id])
-  genderId Int     @unique
+  genderId String      @id @default(uuid())
   genderType String?
 }
 
 model ConsumerType{
-  user   User    @relation(fields: [genderId], references: [id])
-  genderId Int     @unique
+  user   User    @relation(fields: [consumerId], references: [id])
+  consumerId String    @id @default(uuid())
   consumer String?
 }
 
@@ -92,7 +92,7 @@ model CountryIformation{
   municipality String?
   nearbyHeadquarters String?
   user   User    @relation(fields: [countryId], references: [id])
-  countryId Int     @unique
+  countryId String     @unique
 }
 
 model PersonalDocumentation{
@@ -102,7 +102,7 @@ model PersonalDocumentation{
   identificationDocument    String?
   nit String?
   user   User    @relation(fields: [personalDocId], references: [id])
-  personalDocId Int     @unique
+  personalDocId String     @unique
 }
 
 

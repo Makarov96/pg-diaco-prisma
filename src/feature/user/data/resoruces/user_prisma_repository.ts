@@ -4,13 +4,13 @@ import { UserRepository } from "../contracts/user_repository";
 const prisma = new PrismaClient();
 
 export class UserPrismaRepository implements UserRepository {
-  async createAnonymousUser(): Promise<number> {
+  async createAnonymousUser(): Promise<string> {
     let result= await prisma.anonymous.create(
       {data:{}}
     );
     return result.id;
   }
-  async createUser(user: UserModel, countryInfo: CountryModel, consumerType: ConsumerTypeModel, gender: GenderModel, phone: PhoneModel, personalDoc: PersonalDocumentationModel): Promise<number> {
+  async createUser(user: UserModel, countryInfo: CountryModel, consumerType: ConsumerTypeModel, gender: GenderModel, phone: PhoneModel, personalDoc: PersonalDocumentationModel): Promise<string> {
     let result: User
       const userEmail: any = user?.email;
       result = await prisma.user.upsert({

@@ -48,7 +48,7 @@ var UserController = /** @class */ (function () {
         this.indexCreateUser = function (req, res, next) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2 /*return*/];
         }); }); };
-        this.indexCreateAnnymouUser = function (req, res, next) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
+        this.indexCreateAnonymousUser = function (req, res, next) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
             return [2 /*return*/];
         }); }); };
     }
@@ -93,7 +93,7 @@ var UserControllerImpl = /** @class */ (function () {
                 }
             });
         }); };
-        this.indexCreateAnnymouUser = function (req, res, next) { return __awaiter(_this, void 0, void 0, function () {
+        this.indexCreateAnonymousUser = function (req, res, next) { return __awaiter(_this, void 0, void 0, function () {
             var result, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -121,4 +121,5 @@ var UserControllerImpl = /** @class */ (function () {
     }
     return UserControllerImpl;
 }());
+exports.default = new UserControllerImpl();
 //# sourceMappingURL=user_handling_controller.js.map

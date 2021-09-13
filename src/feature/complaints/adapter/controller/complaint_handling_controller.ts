@@ -24,7 +24,7 @@ class ComplaitControllerImpl implements ComplaitController {
       next(new HttpException(400, "Falta ingresas el id del producto", "Error en los parametros  dato indefinido " + `${req.params.id}`));
     }
     try {
-     const result =await this.complaitManager.createCompplait(complait, Number(req.params.id));
+     const result =await this.complaitManager.createCompplait(complait, req.params.id);
      res.json({
        "success":true,
        "payload":{
@@ -32,6 +32,9 @@ class ComplaitControllerImpl implements ComplaitController {
        }
      }).status(200)
     } catch (error) {
+      res.status(400).send({
+        "success":false,
+      });
       next(new HttpException(400, "Error interno vuelve a intentar mas tarde", error));
     }
   }

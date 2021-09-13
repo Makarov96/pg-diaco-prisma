@@ -9,11 +9,11 @@ export class UserManager{
     this.userRepository= userRepository;
   }
 
-  async createUser(user: UserModel, countryInfo: CountryModel, consumerType: ConsumerTypeModel,gender:GenderModel,phone: PhoneModel,personalDoc: PersonalDocumentationModel): Promise<number>{
+  async createUser(user: UserModel, countryInfo: CountryModel, consumerType: ConsumerTypeModel,gender:GenderModel,phone: PhoneModel,personalDoc: PersonalDocumentationModel): Promise<string>{
     const userID= await this.userRepository.createUser(user,countryInfo,consumerType,gender,phone,personalDoc);
     return userID;
   }
-  async createAnonymousUser(): Promise<number>{
+  async createAnonymousUser(): Promise<string>{
     const userID= await this.userRepository.createAnonymousUser();
     return userID;
   }

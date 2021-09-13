@@ -70,7 +70,7 @@ var ComplaitControllerImpl = /** @class */ (function () {
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 3, , 4]);
-                        return [4 /*yield*/, this.complaitManager.createCompplait(complait, Number(req.params.id))];
+                        return [4 /*yield*/, this.complaitManager.createCompplait(complait, req.params.id)];
                     case 2:
                         result = _a.sent();
                         res.json({
@@ -82,6 +82,9 @@ var ComplaitControllerImpl = /** @class */ (function () {
                         return [3 /*break*/, 4];
                     case 3:
                         error_1 = _a.sent();
+                        res.status(400).send({
+                            "success": false,
+                        });
                         next(new http_execption_1.default(400, "Error interno vuelve a intentar mas tarde", error_1));
                         return [3 /*break*/, 4];
                     case 4: return [2 /*return*/];

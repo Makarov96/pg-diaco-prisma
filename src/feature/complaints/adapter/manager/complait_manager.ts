@@ -7,7 +7,7 @@ export class  ComplaitManager {
     this.complaintRepository= complaintRepository;
   }
 
-  async createCompplait(newcomplait: ComplaitInterface, id: number):Promise<String>{
+  async createCompplait(newcomplait: ComplaitInterface, id: string):Promise<String>{
     const complaitId= await this.complaintRepository.createComplaitUser(newcomplait,id);
     return complaitId;
   }

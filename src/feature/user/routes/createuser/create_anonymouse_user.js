@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-var create_complait_1 = __importDefault(require("./createcomplaint/create_complait"));
+var user_handling_controller_1 = __importDefault(require("../../adapter/controller/user_handling_controller"));
 var router = express_1.default.Router();
-router.use("/complait", create_complait_1.default);
+router.post("/createanonymoususer", user_handling_controller_1.default.indexCreateAnonymousUser);
 exports.default = router;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=create_anonymouse_user.js.map

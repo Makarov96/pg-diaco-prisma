@@ -1,6 +1,7 @@
 import express from "express";
 import indexComplait from "../feature/complaints/routes/index";
 import indexUser from "../feature/user/routes/index"
+
 import cors from "cors";
 
 const router = express.Router();

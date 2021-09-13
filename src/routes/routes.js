@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
 var express_1 = __importDefault(require("express"));
 var index_1 = __importDefault(require("../feature/complaints/routes/index"));
+var index_2 = __importDefault(require("../feature/user/routes/index"));
 var cors_1 = __importDefault(require("cors"));
 var router = express_1.default.Router();
 exports.router = router;
@@ -23,4 +24,5 @@ var options = {
 };
 router.use((0, cors_1.default)(options));
 router.use(index_1.default);
+router.use(index_2.default);
 //# sourceMappingURL=routes.js.map
